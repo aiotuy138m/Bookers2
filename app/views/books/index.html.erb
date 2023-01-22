@@ -1,2 +1,36 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div>
+  <h1>User info</h1>
+
+
+  <h1>New book</h1>
+    <%= form_with model: @book do |f| %>
+      <h4>Title</h4>
+        <%= f.text_field :title %>
+      <h4>Opinion</h4>
+        <%= f.text_area :caption %>
+      <%= f.submit 'Create Book' %>
+    <% end %>
+</div>
+
+
+<div>
+  <h1>Books</h1>
+    <table>
+      <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <%= @books.each do |book| %>
+              <td><%= image_tag profile_image %></td>
+              <td><%= book.title %></td>
+              <td><%= book.body %></td>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+</div>

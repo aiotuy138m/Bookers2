@@ -13,16 +13,18 @@ class BooksController < ApplicationController
       @books=Book.all
       render :index
     end
-    redirect_to books_path
+    redirect_to user_show_path(current_user)
   end
 
   def index
-    @books = Book.all
-    @book = Book.new
+    @book = Book.all
+    @user = User.find_by(params[:id])
+    @books = @user.books
   end
 
   def show
     @book = Book.find(params[:id])
+    @users = User.find(params[:id])
   end
 
   def edit
@@ -49,7 +51,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book_).permit(:title, :body)
+    params.require(:book).permit(:title, :body)
   end
 
 end

@@ -1,5 +1,5 @@
 <h1>User info</h1>
-<% form_with model: @user, url: edit_user_path do |f| %>
+<%= form_with model: @user do |f| %>
   <h4>Name</h4>
   <%= f.text_field :name, autofous: true, id:"inputName", placeholder: "名前" %>
   <h4>ProlileImage</h4>

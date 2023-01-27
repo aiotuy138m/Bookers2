@@ -6,8 +6,8 @@
 </div>
 <dir><%= link_to 'm', edit_user_path(current_user) %></dir>
 
-<h1>New book</h1>
-<%= form_with model: book do |f| %>
+ <h1>New book</h1>
+<%= form_with model: Book.new do |f| %>
   <div>Title</div>
   <%= f.text_field :title %>
   <div>Opinion</div>

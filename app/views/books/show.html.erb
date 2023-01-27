@@ -1,2 +1,24 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div>Books
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <div>
+          <%= image_tag @user.get_profile_image(100, 100) %>
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+  <% if current_user %>
+    <%= link_to "hennstu", edit_books_path(@book) %>
+    <%= link_to "削除", books_path(@book), method: :delete %>
+  <% end %>
+</div>
+    </tr>
+  </tbody>
+</table>
+</div>

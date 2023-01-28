@@ -10,8 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body
+  <body>
     <header>
+      <a href="https://89d4bfc9e35c4ef4967dafbb4ba5288f.vfs.cloud9.ap-northeast-1.amazonaws.com">Bookers</a>
     <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
@@ -42,7 +43,7 @@
   </header>
   <%= yield %>
   <footer>
-    <h3>CopyRight Infratop.inc</h3>
+    <h4>CopyRight Infratop.inc</h4>
   </footer>
   </body>
 </html>

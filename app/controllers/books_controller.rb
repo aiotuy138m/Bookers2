@@ -4,11 +4,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    if @book.save
+    book = Book.new(book_params)
+    book.user_id = current_user.id
+    if book.save
       flash[:notice]="You have created book, successfully."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(book.id)
     else
       @books=Book.all
       render :index
@@ -17,7 +17,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @user = current_user
+    @users = User.all
   end
 
   def show
@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Boook.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     book=Book.find(params[:id])
     book.destroy
     flash[:notice]="本当に消しますか？"
-    redirect_to book_path
+    redirect_to books_path
   end
 
   private

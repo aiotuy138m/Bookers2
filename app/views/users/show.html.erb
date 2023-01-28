@@ -1,1 +1,20 @@
-<%= render 'userinfo' %>
+<div><%= render 'userinfo' %></div>
+
+
+<div>
+  <h4>Users</h4>
+  <table>
+    <tr>
+      <tb>image</tb>
+      <tb>name</tb>
+    </tr>
+    <tr>
+      <td><%= image_tag @user.get_profile_image(100, 100) %></td>
+      <td><%= @user.name %></td>
+      <td><%= @user.introduction %></td>
+        <td><%= link_to "Edit", edit_book_path(@book) %></td>
+        <td><%= link_to "Delete", book_path(@book), method: :delete %></td>
+    </tr>
+
+  </table>
+</div>

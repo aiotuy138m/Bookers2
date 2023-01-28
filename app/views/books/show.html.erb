@@ -1,24 +1,19 @@
-<div>Books
-<table>
-  <thead>
+<div><%= render 'users/userinfo' %></div>
+
+<div>
+  <h4>Book detail</h4>
+  <table>
     <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
+      <td><%= image_tag current_user.get_profile_image(100, 100) %>
+        <p><%= current_user.name %><p>
+      </td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <% if current_user %>
+        <td><%= link_to "Edit", edit_book_path(@book) %></td>
+        <td><%= link_to "Delete", book_path(@book), method: :delete %></td>
+      <% end %>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <div>
-          <%= image_tag @user.get_profile_image(100, 100) %>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
-  <% if current_user %>
-    <%= link_to "hennstu", edit_books_path(@book) %>
-    <%= link_to "削除", books_path(@book), method: :delete %>
-  <% end %>
-</div>
-    </tr>
-  </tbody>
-</table>
+
+  </table>
 </div>

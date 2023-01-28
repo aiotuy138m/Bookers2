@@ -1,26 +1,10 @@
-<div>Books
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% books.each do |book| %>
-        <div>
-          <%= image_tag @user.get_profile_image(100, 100) %>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
-  <% if current_user %>
-    <%= link_to "hennstu", edit_books_path(@book) %>
-    <%= link_to "削除", books_path(@book), method: :delete %>
-  <% end %>
-</div>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
-</div>
+<div><%= render 'users/userinfo' %></div>
+
+<h1>Book detail</h1>
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit "変更を保存", url: books_path, method: :patch %>
+<% end %>

@@ -5,26 +5,22 @@
   </div>
 
   <div class="col-lg-8">
-    <% if @update.errors.any? %>
-      <%= @update.errors.count %> errors prohibited this obj from being saved:
-      <ul>
-        <% @update.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <h4>Books</h4>
+    <h4 class="border-bottom p-3">Books</h4>
     <table>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
+      <tr class="border-bottom">
+        <th class="p-2"></th>
+        <th class="p-2">Title</th>
+        <th class="p-2">Opinion</th>
       </tr>
       <% @books.each do |books| %>
-        <tr>
-          <td><%= image_tag books.user.get_profile_image(100, 100) %></td>
-          <td><%= books.title %></td>
-          <td><%= books.body %></td>
+        <tr class="border-bottom">
+          <td class="p-2"><%= image_tag books.user.get_profile_image(100, 100) %></td>
+          <td class="p-2">
+            <%= link_to book_path(books) do %>
+              <%= books.title %>
+            <% end %>
+            </td>
+          <td class="p-2"><%= books.body %></td>
         </tr>
       <% end %>
       </table>

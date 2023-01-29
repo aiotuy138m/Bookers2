@@ -14,11 +14,12 @@
       </tr>
     <% @books.each do |books| %>
       <tr class="border-bottom">
-      　<td><%= link_to book_path(books.id) do %>
-      　       <%= image_tag books.user.get_profile_image(100, 100) %>
-      　     <% end %>
-      　</td>
-        <td><%= books.title %></td>
+      　<td><%= image_tag books.user.get_profile_image(100, 100) %></td>
+        <td>
+          <%= link_to book_path(books.id) do %>
+            <%= books.title %>
+          <% end %>
+        </td>
         <td><%= books.body %></td>
       </tr>
     <% end %>

@@ -6,17 +6,25 @@
     </div>
 
     <div class="col-lg-8">
-      <h1>Book detail</h1>
+      <div class="border-bottom border-3">
+        <h1>Book detail</h1>
+      </div>
       <table rules="rows">
-      <tr>
-        <td><%= image_tag @user.get_profile_image(100, 100) %>
-          <p><%= @user.name %><p>
+      <tr class="boder-bottom">
+        <td class="p-2"><%= image_tag @user.get_profile_image(100, 100) %>
+          <p><%= link_to user_path(@user) do %>
+            <%= @user.name %>
+          <% end %></p>
         </td>
-        <td><%= @book.title %></td>
-        <td><%= @book.body %></td>
+        <td class="p-2">
+          <%= link_to book_path(@book) do %>
+            <%= @book.title %>
+          <% end %>
+        </td>
+        <td class="p-2"><%= @book.body %></td>
         <% if current_user %>
-          <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %></td>
-          <td><%= link_to "Delete", book_path(@book),"data-confirm" => "本当に削除しますか？" , class:"btn btn-danger", method: :delete %></td>
+          <td class="p-2"><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %></td>
+          <td class="p-2"><%= link_to "Delete", book_path(@book),"data-confirm" => "本当に削除しますか？" , class:"btn btn-danger", method: :delete %></td>
         <% end %>
       </tr>
       </table>

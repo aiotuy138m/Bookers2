@@ -1,19 +1,23 @@
-<div><%= render 'userinfo' %></div>
+<div class= "col-lg-4">
+  <%= render 'userinfo' %>
+</div>
 
 
-<div>Users</div>
-<table>
-  <tr>
-    <th>image</th>
-    <th>name</th>
-    <th>introduction</th>
-  </tr>
-  <tr>
-    <% @users.each do |user| %>
-      <td><%= image_tag user.get_profile_image(100, 100) %></td>
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
-      <td><%= link_to "show", user_path(user) %></td>
-    <% end %>
-  </tr>
-</table>
+<div class= "col-lg-8">
+  <h1>Users</h1>
+  <table>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th>introduction</th>
+    </tr>
+    <tr>
+      <% @users.each do |user| %>
+        <td><%= image_tag user.get_profile_image(100, 100) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.introduction %></td>
+        <td><%= link_to "show", user_path(user) %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>

@@ -22,44 +22,50 @@
               <li class="nav-item">
                 <%= link_to user_path(current_user.id), class:"nav-link text-light" do %>
                   <i class="fas fa-home"></i>
-                  Home
+                  Home　
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to url: users_path, class:'nav-link text-light' do %>
+                <%= link_to users_path, class:'nav-link text-light' do %>
                   <i class="fas fa-users"></i>
-                  Users
+                  Users　
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "Books", books_path, class:'nav-link text-light' %>
+                <%= link_to books_path, class:'nav-link text-light' do %>
+                  <i class="fas fa-book-open"></i>
+                  Books　
+                <% end %>
               </li>
               <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:'nav-link text-light' %>
+              <%= link_to destroy_user_session_path, method: :delete, class:'nav-link text-light' do%>
+                <i class="fas fa-sign-out-alt"></i>
+                Log out　
+              <% end %>
               </li>
             <% else %>
             <li class="nav-item">
               <%= link_to root_path, class:'nav-link text-light' do %>
                 <i class="fas fa-home"></i>
-                Home
+                Home　
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to about_path, class:'nav-link text-light' do %>
                 <i class="fas fa-link"></i>
-                About
+                About　
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to new_user_registration_path, class:'nav-link text-light' do %>
                 <i class="fas fa-user-plus"></i>
-                Sign up
+                Sign up　
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to new_user_session_path, class:'nav-link text-light' do %>
                 <i class="fas fa-sign-in-alt"></i>
-                Log in
+                Log in　
               <% end %>
             </li>
             <% end %>
@@ -71,8 +77,8 @@
     <main class='mb-auto'>
     <%= yield %>
     </main>
-    <footer class="d-flex flex j">
-      <h4>CopyRight Infratop.inc</h4>
+    <footer class="text-center">
+      <p>CopyRight Infratop.inc</p>
     </footer>
   </body>
 </html>

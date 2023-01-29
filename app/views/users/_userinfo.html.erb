@@ -1,28 +1,31 @@
-<div class="col-lg-8">
+<div class="col-lg-8 my-2">
   <h1>User info</h1>
-    <div><%= image_tag current_user.get_profile_image(200, 200) %></div>
+    <div><%= image_tag user.get_profile_image(200, 200) %></div>
   <table>
-    <tr>
+    <tr class="border-bottom">
       <th>name</th>
-      <td><%= current_user.name %></td>
+      <td><%= user.name %></td>
     </tr>
-    <tr>
+    <tr class="border-bottom">
       <th>introduction<th>
-      <td><%= current_user.introduction %></td>
+      <td class="p-2"><%= user.introduction %></td>
     </tr>
   </table>
+  <div class="my-3">
     <%= link_to edit_user_path(current_user), class: "col-lg btn btn-secondary" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
+  </div>
 
-  <div>
+  <div class="my-5">
+<!-- ここにエラー文 -->
     <h1>New book</h1>
       <%= form_with model: Book.new do |f| %>
         <div>Title</div>
         <%= f.text_field :title %>
         <div>Opinion</div>
         <%= f.text_area :body %>
-        <%= f.submit "Create Book" %>
+        <%= f.submit "Create Book", class:"btn btn-success" %>
       <% end %>
   </div>
 </div>

@@ -1,10 +1,26 @@
-<h1>User info</h1>
-<%= form_with model: @user, url: user_path, method: :patch do |f| %>
-  <h4>Name</h4>
-  <%= f.text_field :name, autofous: true, id:"inputName", placeholder: "名前" %>
-  <h4>ProlileImage</h4>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-  <h4>Introduction</h4>
-  <%= f.text_area :introduction, autofous: true %>
-  <%= f.submit "変更を保存", url: user_path, method: :patch %>
-<% end %>
+<div class="container w-25">
+  <div class="row">
+    <div class="col-lg-7">
+      <div>
+      <% if @user.errors.any? %>
+        <p> <%= @user.errors.count %> errors prohibted this book from being saved:</p>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+      <h1>User info</h1>
+      <%= form_with model: @user, url: user_path, method: :patch do |f| %>
+        <h4>Name</h4>
+        <%= f.text_field :name, autofous: true, id:"inputName", placeholder: "名前" %>
+        <h4>ProlileImage</h4>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+        <h4>Introduction</h4>
+        <%= f.text_area :introduction, autofous: true %>
+        <%= f.submit "変更を保存", url: user_path, class:"btn btn-success", method: :patch %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,23 @@
-<div><%= render 'users/userinfo' %></div>
+<%= flash[:notice] %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'users/userinfo' %>
+    </div>
 
-<div>
-  <h4>Book detail</h4>
-  <table>
-    <tr>
-      <td><%= image_tag current_user.get_profile_image(100, 100) %>
-        <p><%= current_user.name %><p>
-      </td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      <% if current_user %>
-        <td><%= link_to "Edit", edit_book_path(@book) %></td>
-        <td><%= link_to "Delete", book_path(@book), method: :delete %></td>
-      <% end %>
-    </tr>
-
-  </table>
+    <div class="col-lg-8">
+      <h1>Book detail</h1>
+      <table rules="rows">
+      <tr>
+        <td><%= image_tag current_user.get_profile_image(100, 100) %>
+          <p><%= current_user.name %><p>
+        </td>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+        <% if current_user %>
+          <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %></td>
+          <td><%= link_to "Delete", book_path(@book),"data-confirm" => "本当に削除しますか？" , class:"btn btn-danger", method: :delete %></td>
+        <% end %>
+      </tr>
+      </table>
 </div>

@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <%= render 'users/userinfo' %>
+      <%= render 'users/userinfo', user: @user %>
     </div>
 
     <div class="col-lg-8">
       <h4>Books</h4>
-      <table>
-      <tr>
+      <table rules="rows">
+      <tr class="border-bottom">
         <th></th>
         <th>Title</th>
         <th>Opinion</th>
       </tr>
-      <tr>
-      　<% @books.each do |books| %>
-          <td><%= books.title %></td>
-          <td><%= books.body %></td>
-      　<% end %>
+    <% @books.each do |books| %>
+      <tr class="border-bottom">
+      　<td><%= image_tag books.user.get_profile_image(100, 100) %></td>
+        <td><%= books.title %></td>
+        <td><%= books.body %></td>
       </tr>
+    <% end %>
+      
       </table>
     </div>
   </div>

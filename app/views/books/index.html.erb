@@ -1,3 +1,18 @@
+<div><%= render 'users/userinfo' %></div>
+
 <div>
-    <%= render 'books', books: @books %>
+    <h4>Books</h4>
+<table>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+    <tr>
+      　<% @books.each do |books| %>
+        <td><%= books.title %></td>
+        <td><%= books.body %></td>
+      　<% end %>
+    </tr>
+</table>
 </div>

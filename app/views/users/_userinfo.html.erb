@@ -1,3 +1,5 @@
+<!-- ここまでにエラー文 -->
+
 <div class="col-lg-8 my-2">
   <h1>User info</h1>
     <div><%= image_tag user.get_profile_image(200, 200) %></div>
@@ -18,7 +20,6 @@
   </div>
 
   <div class="my-5">
-<!-- ここにエラー文 -->
     <h1>New book</h1>
       <%= form_with model: Book.new do |f| %>
         <div>Title</div>

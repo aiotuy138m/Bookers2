@@ -1,10 +1,18 @@
 <div class="container">
  <div class="row">
   <div class="col-lg-4 center-block">
-    <%= render 'userinfo', user: @user%>
+    <%= render 'userinfo', user: @user %>
   </div>
 
   <div class="col-lg-8">
+    <% if @update.errors.any? %>
+      <%= @update.errors.count %> errors prohibited this obj from being saved:
+      <ul>
+        <% @update.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <h4>Books</h4>
     <table>
       <tr>

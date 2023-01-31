@@ -25,8 +25,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
+    @user_id = current_user
+    @user = User.find(@book.user_id)
   end
+
 
   def edit
     @user = current_user
@@ -38,7 +40,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "You have update user successfully."
-      redirect_to book_path(@book.id)
+      redirect_to book_path
     else
       render :edit
     end
@@ -47,8 +49,7 @@ class BooksController < ApplicationController
   def destroy
     book=Book.find(params[:id])
     book.destroy
-    flash[:notice]="本当に消しますか？"
-    redirect_to books_path
+    redirect_to user_path
   end
 
   private
@@ -56,5 +57,12 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
+def is_matching_login_user
+  user_id = params[:id].to_i
+  unless user_id == current_user.id
+    redirect_to books_path
+  end
+end
 
 end

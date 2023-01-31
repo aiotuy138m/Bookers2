@@ -15,7 +15,7 @@
         <%= f.text_field :title %>
         <h4>Opinion</h4>
         <%= f.text_area :body %> <br>
-        <%= f.submit "Update　Book", url: books_path, class:"btn btn-success", method: :patch %>
+        <%= f.submit "Update Book", url: books_path, class:"btn btn-success", method: :patch %>
       <% end %>
       <div>
         <%= link_to "Show", book_path %> | <%= link_to "Back", :back %>

@@ -2,12 +2,11 @@ class UsersController < ApplicationController
   def index
     @book = Book.new
     @users =User.all
-    @user = current_user
+    @user = User.find_by(@book.user_id)
   end
 
   
   def show
-    @uuser = User.new
     @book = Book.new
     @user = User.find(params[:id])
     @user_id = current_user
@@ -33,6 +32,13 @@ class UsersController < ApplicationController
 
 
   private
+
+def is_matching_login_user
+  user_id = params[:id].to_i
+  unless user_id == current_user.id
+    redirect_to user_path
+  end
+end
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

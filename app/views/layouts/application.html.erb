@@ -7,7 +7,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,10 +16,7 @@
       <nav class="navbar navbar-expand-1g navbar-light">
         <div class="container">
           <a class="navbar-brand p-3 text-white" href="/">Bookers</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-tatget="#navbarNavDropdowm" aria-controls="navbarNavDropdowm" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdowm">
+          <div class="navbar-nav">
             <ul class="navbar-nav list-group-horizontal">
             <% if user_signed_in? %>
               <li class="nav-item">

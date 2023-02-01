@@ -1,11 +1,11 @@
 <%= flash[:notice] %>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= render 'users/userinfo', user: @user %>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <div class="border-bottom border-3">
         <h1>Book detail</h1>
       </div>
@@ -15,13 +15,14 @@
           <%= link_to user_path(@user) do %>
             <%= image_tag @user.get_profile_image(100, 100) %>
           <% end %>
-          <p><%= link_to user_path(@user) do %>
-               <%= @user.name %>
-             <% end %>
+          <p>
+            <%= link_to user_path(@user) do %>
+              <%= @user.name %>
+            <% end %>
           </p>
         </td>
         <td class="p-2">
-          <%= link_to book_path(@book) do %>
+          <%= link_to user_path(@user) do %>
             <%= @book.title %>
           <% end %>
         </td>
@@ -30,7 +31,7 @@
         </td>
         <% if @book.user == current_user %>
           <td class="p-2"><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success" %></td>
-          <td class="p-2"><%= link_to "Delete", book_path(@book),"data-confirm" => "本当に削除しますか？" , class:"btn btn-danger", method: :delete %></td>
+          <td class="p-2"><%= link_to "Destroy", book_path(@book),"data-confirm" => "本当に削除しますか？" , class:"btn btn-danger", method: :delete %></td>
         <% end %>
       </tr>
       </table>

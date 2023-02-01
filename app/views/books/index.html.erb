@@ -5,26 +5,26 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <h1>Books</h1>
+      <h2>Books</h2>
       <table rules="rows" class="border-bottom">
       <tr class="border-bottom">
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
+        <th class="p-2"></th>
+        <th class="p-2">Title</th>
+        <th class="p-2">Opinion</th>
       </tr>
     <% @books.each do |books| %>
       <tr class="border-bottom">
-      　<td>
+      　<td class="p-2">
       　 <%= link_to user_path(books.user) do %>
             <%= image_tag books.user.get_profile_image(100, 100) %>
           <% end %>
-        </td>
-        <td>
+        </td class="p-2">
+        <td class="p-2">
           <%= link_to book_path(books.id) do %>
             <%= books.title %>
           <% end %>
         </td>
-        <td><%= books.body %></td>
+        <td class="p-2"><%= books.body %></td>
       </tr>
     <% end %>
       </table>

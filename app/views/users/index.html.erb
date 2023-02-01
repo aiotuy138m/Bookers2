@@ -8,20 +8,20 @@
     <h1>Users</h1>
     <table rules="rows">
     <tr>
-      <th>image</th>
-      <th>name</th>
-      <th>introduction</th>
+      <th class="p-2">image</th>
+      <th class="p-2">name</th>
+      <th class="p-2">introduction</th>
     </tr>
     <% @users.each do |user| %>
     <tr>
-      <td>
+      <td class="p-2">
         <%= link_to user_path(id: user.id) do %>
           <%= image_tag user.get_profile_image(100, 100) %>
         <% end %>
       </td>
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
-      <td><%= link_to "Show", user_path(id: user.id) %></td>
+      <td class="p-2"><%= user.name %></td>
+      <td class="p-2"><%= user.introduction %></td>
+      <td class="p-2"><%= link_to "Show", user_path(id: user.id) %></td>
     </tr>
     <% end %>
     </table>
